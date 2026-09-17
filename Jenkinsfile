@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Fardin-Faruq/student-custom-environment.git'
+                    url: 'https://github.com/YOUR_USERNAME/student-custom-environment.git'
             }
         }
 
@@ -25,6 +25,15 @@ pipeline {
             steps {
                 bat 'python -m py_compile app.py'
                 echo "${env.APP_NAME} version ${env.APP_VERSION} compiled successfully."
+            }
+        }
+
+        stage('Compare Variables') {
+            steps {
+                echo "Custom APP_NAME: ${env.APP_NAME}"
+                echo "Custom APP_VERSION: ${env.APP_VERSION}"
+                echo "Built-in BUILD_NUMBER: ${env.BUILD_NUMBER}"
+                echo "Built-in WORKSPACE: ${env.WORKSPACE}"
             }
         }
     }
