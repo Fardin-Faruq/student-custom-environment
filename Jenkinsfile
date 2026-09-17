@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/YOUR_USERNAME/student-custom-environment.git'
+                    url: 'https://github.com/Fardin-Faruq/student-custom-environment.git'
             }
         }
 
